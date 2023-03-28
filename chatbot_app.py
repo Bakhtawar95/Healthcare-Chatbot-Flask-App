@@ -388,6 +388,9 @@ def get_bot_response():
             n_days=int(userText1)
             session['num_days'] = n_days 
             session['disease'] = 0
+            bot_response = chatbot_response(clf,cols,userText1)
+            print(f"bot_response: {bot_response}")
+            return bot_response
         except:
             return"Enter valid number of days."
     elif hi==1 or again==1:
