@@ -231,14 +231,15 @@ def disease_search(feature_names,msg):
         session['searches']=cnf_dis
         for num,it in enumerate(cnf_dis):
             return_string=return_string+str(num)+') '+it+'<br/>'
-        
+            
 
-        if num!=0:
+        if num!="":
             res='Searches related to the input:'+'<br/>'+return_string+'<br/>'+"Select the one you meant (0 -{}) : ".format (num) 
             session['confirm'] =1
-        else: 
+        else:
             res='No related data found.Please try again with another input'
             session['again'] = 1
+
     else:      
         res='Please enter valid symptoms'
         session['again'] = 1   
@@ -324,7 +325,7 @@ def chatbot_response(tree,feature_names,msg):
                     for  i,j in enumerate(precution_list):
                             pre=pre+str(i+1)+') '+j+'<br/>'
                     return c+'<br/>'+"You may have {}" .format(present_disease[0])+'<br/>'+ description_list[present_disease[0]]+'<br/>'+'<br/>'+'Take the following measures:'+'<br/>'+pre
-                    
+                            
                 else:
                     precution_list=precautionDictionary[present_disease[0]]
                     for  i,j in enumerate(precution_list):
